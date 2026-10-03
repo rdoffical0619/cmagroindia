@@ -1,6 +1,7 @@
 /* ==========================================================================
    CM AGRO INDIA - GLOBAL EXPORT PORTAL STYLESHEET (styles.css)
-   Dynamic Responsive Design System with Media Queries (Mobile, iPad, Desktop)
+   Fully Dynamic Responsive Design System with Comprehensive Media Queries
+   Screen Resolutions Supported: Mobile (Phones), Tablet (iPads), Desktop & Ultra-Wide
    Version: 11.1.2610.01 | Tag: cmagro_master_11.1.2610.01
    ========================================================================== */
 
@@ -27,13 +28,17 @@
   --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --header-height-mobile: 64px;
+  --header-height-tablet: 72px;
   --header-height-desktop: 80px;
+
   --topbar-height-mobile: 36px;
   --topbar-height-desktop: 28px;
+  
+  --container-max-width: 1280px;
 }
 
 /* --------------------------------------------------------------------------
-   2. BASE RESETS & SCROLLBAR CONTROL
+   2. BASE RESETS & NORMALIZATION
    -------------------------------------------------------------------------- */
 html {
   scroll-behavior: smooth;
@@ -51,7 +56,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hide scrollbars cleanly */
+/* Hide scrollbars cleanly across browsers */
 ::-webkit-scrollbar {
   display: none;
 }
@@ -68,7 +73,7 @@ main > :last-child {
 }
 
 /* --------------------------------------------------------------------------
-   3. CUSTOM SELECT DROPDOWN STYLING
+   3. CUSTOM INTERACTIVE & FORM CONTROLS
    -------------------------------------------------------------------------- */
 .custom-select {
   appearance: none;
@@ -86,122 +91,206 @@ main > :last-child {
 }
 
 /* --------------------------------------------------------------------------
-   4. DYNAMIC RESPONSIVE MEDIA QUERIES (Mobile, iPad/Tablet, Desktop)
+   4. DYNAMIC RESPONSIVE BREAKPOINTS (Mobile, iPad/Tablet, Desktop & Ultra-Wide)
    -------------------------------------------------------------------------- */
 
-/* --- MOBILE PHONES (Up to 639px) --- */
+/* ==========================================
+   A. MOBILE PHONES (Up to 639px)
+   ========================================== */
 @media (max-width: 639px) {
   body {
     font-size: 14px;
   }
 
-  /* Form & Interactive Controls */
+  /* Touch Target & Form Input Standards */
   input, select, textarea, button {
-    min-height: 48px; /* Touch target standard */
+    min-height: 48px !important;
     font-size: 15px !important;
   }
 
-  /* Form Field Spacing */
-  #export-rfq-form .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Header Brand Logo Adjustments */
+  /* Header & Top Bar Mobile Adjustments */
   header .h-20 {
     height: var(--header-height-mobile) !important;
   }
-  
+
   header h1, header span.font-headline-sm {
     font-size: 15px !important;
   }
 
-  /* Top Announcement Bar */
   .top-announcement-bar {
     font-size: 10px !important;
     padding-top: 4px;
     padding-bottom: 4px;
   }
 
-  /* Mobile Drawer Padding */
+  /* Mobile Drawer Menu */
   #mobileMenu {
     padding: 1rem !important;
   }
 
-  /* Slideshow aspect ratio for small screens */
-  #supplyChainSlider .aspect-\[16\/9\] {
-    aspect-ratio: 4 / 3 !important;
-    max-height: 340px;
+  #mobileMenu a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 
-  /* Footer stack */
-  footer .flex-col {
+  /* Hero Section Stack */
+  h1 {
+    font-size: clamp(1.75rem, 6vw, 2.25rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Button Stacks */
+  .hero-action-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .hero-action-buttons a,
+  .hero-action-buttons button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Grid Layout Fallbacks to 1-Column */
+  #export-rfq-form .grid,
+  .product-catalog-grid,
+  .spec-grid-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Slideshow Mobile Aspect Ratio */
+  #supplyChainSlider .aspect-\[16\/9\] {
+    aspect-ratio: 4 / 3 !important;
+    max-height: 320px !important;
+  }
+
+  /* Footer Stacked Layout */
+  footer {
     text-align: center;
+  }
+
+  footer .flex-col-mobile {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
   }
 }
 
-/* --- IPADS & TABLETS (640px to 1023px) --- */
+/* ==========================================
+   B. IPADS & TABLETS (640px to 1023px)
+   ========================================== */
 @media (min-width: 640px) and (max-width: 1023px) {
-  /* 2-Column Grid Layout for Products and Forms */
-  .grid-cols-2-tablet {
+  body {
+    font-size: 15px;
+  }
+
+  /* Header Height for Tablets */
+  header .h-20 {
+    height: var(--header-height-tablet) !important;
+  }
+
+  /* 2-Column Responsive Grids for Products, Features & Forms */
+  .grid-cols-2-tablet,
+  .product-catalog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.25rem !important;
   }
 
-  /* Hero Section Split */
-  .hero-container {
-    padding-top: 2rem;
-    padding-bottom: 2.5rem;
-  }
-
-  /* Intermediate aspect ratio for tablets */
-  #supplyChainSlider .aspect-\[16\/9\] {
-    aspect-ratio: 16 / 9 !important;
-    max-height: 440px;
-  }
-
-  /* Form Row 2-per-line Grid */
+  /* RFQ Form Grid 2-Per-Line */
   #export-rfq-form .grid-cols-1.sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
-  /* Footer layout */
+  /* Tablet Hero Adjustments */
+  h1 {
+    font-size: clamp(2.25rem, 4vw, 2.85rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Slideshow Tablet Aspect Ratio */
+  #supplyChainSlider .aspect-\[16\/9\] {
+    aspect-ratio: 16 / 9 !important;
+    max-height: 440px !important;
+  }
+
+  /* Footer 2-Column Layout */
   footer .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 
-/* --- DESKTOPS & LAPTOPS (1024px and above) --- */
+/* ==========================================
+   C. DESKTOPS & LAPTOPS (1024px to 1279px)
+   ========================================== */
 @media (min-width: 1024px) {
   header .h-20 {
     height: var(--header-height-desktop) !important;
   }
 
-  /* Desktop Header Sticky Transition */
+  /* Header Sticky Transition */
   header {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  /* Slideshow full aspect ratio */
+  /* Hero Display Typography */
+  h1 {
+    font-size: 3.25rem !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Slideshow Desktop Ultra-Wide Aspect Ratio */
   #supplyChainSlider .aspect-\[16\/9\] {
     aspect-ratio: 21 / 9 !important;
-    max-height: 520px;
+    max-height: 520px !important;
   }
 
-  /* 4-Column Product Grid */
+  /* 4-Column Product Catalog Display Grid */
   .product-catalog-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
   }
 
-  /* RFQ Form Split 5:7 */
+  /* RFQ Form Split Layout 5:7 */
   .rfq-container-grid {
     grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
   }
 }
 
-/* --- LARGE SCREENS & ULTRA-WIDE (1280px+) --- */
+/* ==========================================
+   D. LARGE MONITORS & ULTRA-WIDE (1280px+)
+   ========================================== */
 @media (min-width: 1280px) {
   .max-w-container-max {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: var(--container-max-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. ACCESSIBILITY & PRINT STYLES
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  header, footer, #mobileMenuBtn, .top-announcement-bar {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
   }
 }
