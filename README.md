@@ -7,7 +7,7 @@ This repository contains the complete, high-fidelity responsive landing page for
 **Developer**: Designed & Developed by **RD Officials**
 
 ## Features
-- **Modern Responsive Design**: Built with Tailwind CSS, custom color system, and modern typography (Plus Jakarta Sans & Inter).
+- **Modern Responsive Design**: Built with Tailwind CSS, custom color system, and Satoshi typography (Bold headings, Regular body text, and Medium/Bold buttons).
 - **Export Specifications**: Detailed specifications for Shallots, Big Onions ( Red/Yellow Globe), Pearl Onions, and Spring Onions.
 - **Interactive Farm-to-Port Visual Journey**: Smooth auto-rotating slideshow showcasing the supply chain process.
 - **Logistics & Cold Chain**: Express port transit details, Incoterms 2020 breakdown, and container loading metrics.
